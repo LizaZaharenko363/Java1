@@ -1,3 +1,5 @@
+package com.example.lab1;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -6,38 +8,35 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/users")
-public class UserServlet extends HttpServlet {
-    // GET Method - List Users
+@WebServlet("/orders/*")
+public class OrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>User List</h1>");
+        out.println("<h1>Order History</h1>");
         out.println("<ul>");
-        out.println("<li>User 1</li>");
-        out.println("<li>User 2</li>");
+        out.println("<li>Order #1001 - Laptop - $999</li>");
+        out.println("<li>Order #1002 - Smartphone - $599</li>");
         out.println("</ul>");
-        out.println("<a href='/lab1-1.0-SNAPSHOT'>Back to Home</a>");
         out.println("</body></html>");
     }
 
-    // POST Method - Create User
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
+        String productId = request.getParameter("productId");
+        String quantity = request.getParameter("quantity");
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>User Registration</h1>");
-        out.println("<p>Username: " + username + "</p>");
-        out.println("<p>Email: " + email + "</p>");
-        out.println("<a href='/lab1-1.0-SNAPSHOT'>Back to Home</a>");
+        out.println("<h1>Order Creation Result</h1>");
+        out.println("<p>New order placed:</p>");
+        out.println("<p>Product ID: " + productId + "</p>");
+        out.println("<p>Quantity: " + quantity + "</p>");
         out.println("</body></html>");
     }
 }

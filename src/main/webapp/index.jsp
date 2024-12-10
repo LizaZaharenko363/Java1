@@ -7,7 +7,11 @@
 
 </head>
 <body>
-<h1>Lab2</h1>
+<h1>Lab3</h1>
+
+<h2>Bean Examples</h2>
+<a href="date-bean.jsp">View Date Bean</a>
+<a href="value-bean.jsp">Modify Value Bean</a>
 
 <h2>GET Requests</h2>
 <a href="users">List Users</a>
